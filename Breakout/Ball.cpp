@@ -17,6 +17,16 @@ Ball::~Ball()
 {
 }
 
+void Ball::resetBallValues()
+{
+    _sprite.setPosition(0, 300);
+    _direction = sf::Vector2f(1, 1);
+    _velocity = VELOCITY;
+    _isAlive = true;
+    _isFireBall = false;
+    _timeWithPowerupEffect = 0;
+}
+
 void Ball::update(float dt)
 {
     // check for powerup, tick down or correct

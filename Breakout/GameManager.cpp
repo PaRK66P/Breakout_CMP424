@@ -24,8 +24,7 @@ void GameManager::initialize()
     _powerupManager = new PowerupManager(_window, _paddle, _ball);
     _ui = new UI(_window, _lives, this);
 
-    // Create bricks
-    _brickManager->createBricks(5, 10, 80.0f, 30.0f, 5.0f);
+    createGame();
 }
 
 void GameManager::update(float dt)
@@ -38,11 +37,15 @@ void GameManager::update(float dt)
     if (_lives <= 0)
     {
         _masterText.setString("Game over.");
+        resetGameCheck();
+        
         return;
     }
     if (_levelComplete)
     {
         _masterText.setString("Level completed.");
+        resetGameCheck();
+        
         return;
     }
     // pause and pause handling
@@ -108,6 +111,34 @@ void GameManager::render()
 void GameManager::levelComplete()
 {
     _levelComplete = true;
+}
+
+
+void GameManager::resetGameCheck()
+{
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::R))
+    {
+        createGame();
+    }
+}
+
+void GameManager::createGame()
+{
+    _time = 0.0f;
+    _timeLastPowerupSpawned = 0.0f;
+    _lives = 3;
+    _levelComplete = false;
+    _powerupInEffect = {none, 0.0f};
+    _masterText.setString("");
+    
+    _paddle->moveToCenter();
+    _messagingSystem->setMessage("", 0);
+    _ball->resetBallValues();
+    _powerupManager->resetManager();
+    _ui->setLives(3);
+    
+    // Create bricks
+    _brickManager->createBricks(5, 10, 80.0f, 30.0f, 5.0f);
 }
 
 sf::RenderWindow* GameManager::getWindow() const { return _window; }

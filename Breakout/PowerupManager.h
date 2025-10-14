@@ -19,6 +19,8 @@ public:
     PowerupManager(sf::RenderWindow* window, Paddle* paddle, Ball* ball);
     ~PowerupManager();
 
+    void resetManager();
+
     void update(float dt);
     void render();
     void spawnPowerup(); // Method to spawn a power-up

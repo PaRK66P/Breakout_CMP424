@@ -15,6 +15,16 @@ PowerupManager::~PowerupManager()
     _powerups.clear();
 }
 
+void PowerupManager::resetManager()
+{
+    for (auto powerup : _powerups)
+    {
+        delete powerup;
+    }
+    _powerups.clear();
+    _powerupInEffect.reset();
+}
+
 void PowerupManager::update(float dt)
 {
     // tick down powerup effect time. Reset if elapsed.

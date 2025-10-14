@@ -10,6 +10,7 @@ class Ball {
 public:
     Ball(sf::RenderWindow* window, float velocity, GameManager* gameManager);
     ~Ball();
+    void resetBallValues();
     void update(float dt);
     void render();
     void setVelocity(float coeff, float duration);

@@ -6,7 +6,7 @@ Paddle::Paddle(sf::RenderWindow* window)
     : _window(window), _width(PADDLE_WIDTH), _timeInNewSize(0.0f), _isAlive(true)
 {
     _sprite.setFillColor(sf::Color::Cyan);
-    _sprite.setPosition((static_cast<float>(WINDOW_WIDTH) - _width) / 2.0f, static_cast<float>(WINDOW_HEIGHT) - 50.0f);
+    moveToCenter();
     _sprite.setSize(sf::Vector2f(_width, PADDLE_HEIGHT));
 }
 
@@ -49,6 +49,16 @@ void Paddle::update(float dt)
 void Paddle::render()
 {
     _window->draw(_sprite);
+}
+
+void Paddle::setPosition(sf::Vector2f newPosition)
+{
+    _sprite.setPosition(newPosition);
+}
+
+void Paddle::moveToCenter()
+{
+    setPosition(sf::Vector2f((static_cast<float>(WINDOW_WIDTH) - _width) / 2.0f, static_cast<float>(WINDOW_HEIGHT) - 50.0f));
 }
 
 sf::FloatRect Paddle::getBounds() const

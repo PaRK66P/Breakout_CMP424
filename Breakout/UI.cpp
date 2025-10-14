@@ -7,6 +7,21 @@
 UI::UI(sf::RenderWindow* window, int lives, GameManager* gameManager) 
 	: _window(window), _gameManager(gameManager)
 {
+	_powerupText.setCharacterSize(30);
+	_powerupText.setPosition(600, 10);
+	_powerupText.setFillColor(sf::Color::Cyan);
+	_font.loadFromFile("font/montS.ttf");
+	_powerupText.setFont(_font);
+}
+
+UI::~UI()
+{
+}
+
+void UI::setLives(int lives)
+{
+	_lives.clear();
+	
 	for (int i = lives; i > 0; --i)
 	{
 		sf::CircleShape newLife;
@@ -17,15 +32,8 @@ UI::UI(sf::RenderWindow* window, int lives, GameManager* gameManager)
 		newLife.setPosition((LIFE_RADIUS*2 + LIFE_PADDING) * i, LIFE_PADDING);
 		_lives.push_back(newLife);
 	}
-	_powerupText.setCharacterSize(30);
-	_powerupText.setPosition(600, 10);
-	_powerupText.setFillColor(sf::Color::Cyan);
-	_font.loadFromFile("font/montS.ttf");
-	_powerupText.setFont(_font);
-}
 
-UI::~UI()
-{
+	_powerupText.setString("");
 }
 
 
