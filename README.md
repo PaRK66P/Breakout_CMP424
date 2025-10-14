@@ -32,4 +32,12 @@ fire ball (green)
 * Implement commentary with calls to an LLM such as LLama
 
 # Time Details and Changelist
-<Add information to this section about the time you've taken for this task along with a professional changelist.>
+14/10/2025
+Started: 1:19am
+Compilation Errors fixed: 1:50am
+Constant Window Values: 2:05am
+Scaling Fix: 2:36am
+UI Text Scaling Fix: 2:44am
+Game loop/reset: 3:10am
+Formatted CONSTANTS: 4:06am
+ENDED FOR THE DAY - Time spent: 2 hours and 47 minutes
