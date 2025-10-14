@@ -1,5 +1,8 @@
 #include "Ball.h"
+#include "CONSTANTS.h"
 #include "GameManager.h" // avoid circular dependencies
+
+#include <iostream>
 
 Ball::Ball(sf::RenderWindow* window, float velocity, GameManager* gameManager)
     : _window(window), _velocity(velocity), _gameManager(gameManager),
@@ -45,10 +48,9 @@ void Ball::update(float dt)
 
     // check bounds and bounce
     sf::Vector2f position = _sprite.getPosition();
-    sf::Vector2u windowDimensions = _window->getSize();
-
+    
     // bounce on walls
-    if ((position.x >= windowDimensions.x - 2 * RADIUS && _direction.x > 0) || (position.x <= 0 && _direction.x < 0))
+    if ((position.x >= static_cast<float>(WINDOW_WIDTH) - 2 * RADIUS && _direction.x > 0) || (position.x <= 0 && _direction.x < 0))
     {
         _direction.x *= -1;
     }
@@ -60,7 +62,7 @@ void Ball::update(float dt)
     }
 
     // lose life bounce
-    if (position.y > windowDimensions.y)
+    if (position.y > static_cast<float>(WINDOW_HEIGHT))
     {
         _sprite.setPosition(0, 300);
         _direction = { 1, 1 };
