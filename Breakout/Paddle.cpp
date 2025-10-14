@@ -14,6 +14,13 @@ Paddle::~Paddle()
 {
 }
 
+void Paddle::resetValues()
+{
+    moveToCenter();
+    _timeInNewSize = 0.0f;
+    _isAlive = true;
+}
+
 void Paddle::moveLeft(float dt)
 {
     float position = _sprite.getPosition().x;
@@ -58,7 +65,7 @@ void Paddle::setPosition(sf::Vector2f newPosition)
 
 void Paddle::moveToCenter()
 {
-    setPosition(sf::Vector2f((static_cast<float>(WINDOW_WIDTH) - _width) / 2.0f, static_cast<float>(WINDOW_HEIGHT) - 50.0f));
+    setPosition(sf::Vector2f(PADDLE_START_POSITION));
 }
 
 sf::FloatRect Paddle::getBounds() const

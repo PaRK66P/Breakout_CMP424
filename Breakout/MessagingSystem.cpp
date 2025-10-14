@@ -1,13 +1,14 @@
 #include "MessagingSystem.h"
+#include "CONSTANTS.h"
 
 MessagingSystem::MessagingSystem(sf::RenderWindow* window)
 {
 	_window = window;
-	_message.setCharacterSize(24);
-	_font.loadFromFile("font/montS.ttf");
+	_message.setCharacterSize(MESSAGING_SYSTEM_TEXT_SIZE);
+	_font.loadFromFile(montSFont);
 	_message.setFont(_font);
-	_message.setFillColor(sf::Color::White);
-	_message.setPosition(10, 10);
+	_message.setFillColor(messagingSystemTextColour);
+	_message.setPosition(MESSAGING_SYSTEM_TEXT_POSITION);
 		
 }
 

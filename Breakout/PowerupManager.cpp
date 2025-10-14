@@ -68,6 +68,7 @@ void PowerupManager::spawnPowerup()
 {
 
     // TODO finish this.
+    // 14:10:2025::03:54 What is unfinished? I see there is a 5th case but there are only 5 powerups so all seem implemented.
     switch (rand() % 5)
     {
     case 0:

@@ -8,15 +8,14 @@ PowerupBase::PowerupBase(sf::RenderWindow* window, Paddle* paddle, Ball* ball)
 {
     _window = window;
     _paddle = paddle;
-    _sprite.setRadius(RADIUS);
+    _sprite.setRadius(POWERUP_RADIUS);
     _isAlive = true;
     _ball = ball;
 
     // Initial position and direction with some variability
-    float initialX = rand() % WINDOW_WIDTH * 0.9 + WINDOW_WIDTH * 0.05;
-    _sprite.setPosition(initialX, 5);
-    _direction = { 0.0f, FLOAT_DOWN_SPEED };
-
+    float initialX = (rand() % WINDOW_WIDTH * POWERUP_INITIAL_WIDTH) + WINDOW_WIDTH * POWERUP_INITIAL_WIDTH_PADDING; // First gets random position and second is for bounds (0.05-0.95)
+    _sprite.setPosition(initialX, POWERUP_INITIAL_Y);
+    _direction = { 0.0f, POWERUP_FLOAT_DOWN_SPEED };
 }
 
 PowerupBase::~PowerupBase()
@@ -29,7 +28,7 @@ void PowerupBase::update(float dt)
 
     // Smooth side-to-side movement using a sine wave
     float sineWave = std::sin(_time * 2.0f); // Adjust the frequency as needed
-    _direction.x = sineWave * AMPLITUDE_OF_FALL; // Adjust the amplitude as needed
+    _direction.x = sineWave * POWERUP_APLITUDE_OF_FALL; // Adjust the amplitude as needed
 
     // Move the power-up
     _sprite.move(_direction.x * dt, _direction.y * dt);
@@ -43,7 +42,7 @@ void PowerupBase::update(float dt)
     //_sprite.setFillColor(sf::Color(static_cast<sf::Uint8>(_colours[0]), static_cast<sf::Uint8>(_colours[1]), static_cast<sf::Uint8>(_colours[2]), 255));
 
     // Collide with floor (i.e., was missed)
-    if (_sprite.getPosition().y + RADIUS * 2 >= static_cast<float>(WINDOW_HEIGHT))
+    if (_sprite.getPosition().y + POWERUP_RADIUS * 2 >= static_cast<float>(WINDOW_HEIGHT))
     {
         _isAlive = false;
     }

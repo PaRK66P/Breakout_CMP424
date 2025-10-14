@@ -12,6 +12,6 @@ PowerupBigPaddle::~PowerupBigPaddle()
 
 std::pair<POWERUPS,float> PowerupBigPaddle::applyEffect()
 {
-    _paddle->setWidth(1.5f, 5.0f);
-    return { bigPaddle, 5.0f };
+    _paddle->setWidth(BIG_PADDLE_WIDTH_COEFFICIENT, BIG_PADDLE_DURATION);
+    return { bigPaddle, BIG_PADDLE_DURATION };
 }
