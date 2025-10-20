@@ -20,6 +20,9 @@ constexpr const char* WINDOW_TITLE = "Breakout";
 constexpr float PADDLE_WIDTH = 150.0f;
 constexpr float PADDLE_HEIGHT = 20.0f;
 constexpr float PADDLE_SPEED = 300.0f;
+constexpr float PADDLE_ROTATION = 15.0f;
+constexpr float PADDLE_ROTATION_RESET_TIME = 0.1f;
+constexpr float PADDLE_MOUSE_BUFFER_SPACE = 10.0f;
 const sf::Vector2f PADDLE_START_POSITION = sf::Vector2f(325, 550);
 
 // Ball settings

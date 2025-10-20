@@ -17,6 +17,7 @@ public:
     void setPosition(sf::Vector2f);
     void moveToCenter();
     sf::FloatRect getBounds() const;
+    float getXPosition();
     void setWidth(float coeff, float duration);
 
 private:
@@ -27,4 +28,8 @@ private:
     float _width = PADDLE_WIDTH;
     bool _isAlive;
     float _timeInNewSize = 0.0f;
+    bool _hasRotated;
+    float _currentRotation = 0.0f;
+    float _paddlePosition;
+    float _timeTillRotationReset;
 };
