@@ -24,6 +24,8 @@ void GameManager::initialize()
     _powerupManager = new PowerupManager(_window, _paddle, _ball);
     _ui = new UI(_window, _lives, this);
 
+    _isUsingMouse = false;
+
     createGame();
 }
 
@@ -81,8 +83,39 @@ void GameManager::update(float dt)
     }
 
     // move paddle
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) _paddle->moveRight(dt);
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) _paddle->moveLeft(dt);
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+    {
+        _paddle->moveRight(dt);
+        _isUsingMouse = false;
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+    {
+        _paddle->moveLeft(dt);
+        _isUsingMouse = false;
+    }
+
+    if (_isUsingMouse)
+    {
+        float mousePosition = static_cast<float>(sf::Mouse::getPosition(*_window).x);
+        float paddlePosition = _paddle->getBounds().getPosition().x + (_paddle->getBounds().width / 2.0f);
+        // Create buffer space to make sure paddle doesn't bounce left and right
+        if (mousePosition > paddlePosition + (dt * PADDLE_SPEED))
+        {
+            _paddle->moveRight(dt);
+        }
+        else if (mousePosition < paddlePosition - (dt * PADDLE_SPEED))
+        {
+            _paddle->moveLeft(dt);
+        }
+    }
+    else
+    {
+        if (sf::Mouse::isButtonPressed(sf::Mouse::Left)
+            || sf::Mouse::isButtonPressed(sf::Mouse::Right))
+        {
+            _isUsingMouse = true;
+        }
+    }
 
     // update everything 
     _paddle->update(dt);

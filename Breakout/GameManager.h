@@ -48,4 +48,6 @@ private:
     PowerupManager* _powerupManager;
     MessagingSystem* _messagingSystem;
     UI* _ui;
+
+    bool _isUsingMouse;
 };
