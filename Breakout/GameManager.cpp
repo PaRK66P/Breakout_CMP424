@@ -96,7 +96,8 @@ void GameManager::update(float dt)
 
     if (_isUsingMouse)
     {
-        float mousePosition = static_cast<float>(sf::Mouse::getPosition(*_window).x);
+        std::cout << static_cast<float>(_window->getSize().x) << std::endl;
+        float mousePosition = static_cast<float>(sf::Mouse::getPosition(*_window).x) * (WINDOW_WIDTH / static_cast<float>(_window->getSize().x));
         float paddlePosition = _paddle->getBounds().getPosition().x + (_paddle->getBounds().width / 2.0f);
         // Create buffer space to make sure paddle doesn't bounce left and right
         if (mousePosition > paddlePosition + (dt * PADDLE_SPEED))
