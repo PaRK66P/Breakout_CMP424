@@ -1,6 +1,6 @@
 # Breakout
 
-W Kavanagh & N Merchant. Summer 2024 
+W Kavanagh \& N Merchant. Summer 2024
 
 ## controls
 
@@ -27,17 +27,33 @@ fire ball (green)
 * GameLoop
 * Better ball physics (Box2D)
 * Leaderboards
-* More ball types (e.g., multiball, sticky ball [where you shoot the ball from the paddle every time], tiny ball, big ball, brick-tracking ball)
+* More ball types (e.g., multiball, sticky ball \[where you shoot the ball from the paddle every time], tiny ball, big ball, brick-tracking ball)
 * Sounds with increasing tone between bounces.
 * Implement commentary with calls to an LLM such as LLama
 
 # Time Details and Changelist
-14/10/2025
-Started: 1:19am
-Compilation Errors fixed: 1:50am
-Constant Window Values: 2:05am
-Scaling Fix: 2:36am
-UI Text Scaling Fix: 2:44am
-Game loop/reset: 3:10am
-Formatted CONSTANTS: 4:06am
-ENDED FOR THE DAY - Time spent: 2 hours and 47 minutes
+
+Compilation Errors fixed:       30 minutes
+
+Constant Window Values:         15 minutes
+
+Scaling Fix:                    30 minutes
+
+UI Text Scaling Fix:            10 minutes
+
+Game Loop/Reset:                25 minutes
+
+Formatted CONSTANTS:            60 minutes
+
+Mouse Controls:                 30 minutes
+
+Mouse Controls Window Scaling:  10 minutes
+
+Paddle Tweening:               105 minutes
+
+
+
+Total time: 5 hours and 15 minutes
+
+Split across two days.
+
