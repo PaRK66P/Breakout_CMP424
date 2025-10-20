@@ -33,6 +33,8 @@ fire ball (green)
 
 # Time Details and Changelist
 
+DAY ONE
+
 Compilation Errors fixed:       30 minutes
 
 Constant Window Values:         15 minutes
@@ -44,6 +46,8 @@ UI Text Scaling Fix:            10 minutes
 Game Loop/Reset:                25 minutes
 
 Formatted CONSTANTS:            60 minutes
+
+DAY TWO
 
 Mouse Controls:                 30 minutes
 
